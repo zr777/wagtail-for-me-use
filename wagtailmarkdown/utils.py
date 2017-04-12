@@ -15,6 +15,9 @@ import bleach
 import wagtailmarkdown.mdx.tables
 import wagtailmarkdown.mdx.linker
 
+# https://bleach.readthedocs.io/en/latest/clean.html#allowed-tags-tags
+# https://pythonhosted.org/Markdown/reference.html
+
 def render(text):
     return mark_safe(bleach.clean(markdown.markdown(text,
             extensions=[ 'extra',
@@ -36,7 +39,7 @@ def render(text):
         tags = [ 'p', 'div', 'span', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'tt', 'pre',
                  'em', 'strong', 'ul', 'li', 'dl', 'dd', 'dt', 'code', 'img', 'a',
                  'table', 'tr', 'th', 'td', 'tbody', 'caption', 'colgroup', 'thead',
-                 'tfoot', 'blockquote', 'ol', '<hr>', ],
+                 'tfoot', 'blockquote', 'ol', 'hr', ],
         attributes = {
             '*': [ 'class', 'style', 'id', ],
             'a': [ 'href', 'target', 'rel', ],
